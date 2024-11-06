@@ -15,6 +15,45 @@ function reducer(state, action) {
   switch (action.type) {
     case 'cart/addProductToCart':
       return { ...state, cartItems: [...state.cartItems, action.payload] }
+    case 'cart/decreaseItemQuantity':
+      if (
+        state.cartItems.find((item) => item.id === action.payload)?.quantity <=
+        1
+      )
+        return {
+          ...state,
+          cartItems: state.cartItems.filter(
+            (item) => item.id !== action.payload
+          ),
+        }
+
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) =>
+          item.id === action.payload
+            ? {
+                id: item.id,
+                name: item.name,
+                unitPrice: item.unitPrice,
+                quantity: item.quantity - 1,
+              }
+            : item
+        ),
+      }
+    case 'cart/increaseItemQuantity':
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) =>
+          item.id === action.payload
+            ? {
+                id: item.id,
+                name: item.name,
+                unitPrice: item.unitPrice,
+                quantity: item.quantity + 1,
+              }
+            : item
+        ),
+      }
     default:
       return state
   }
@@ -35,12 +74,25 @@ function CartProvider({ children }) {
       unitPrice: product.price,
       quantity: 1,
     }
-
     dispatch({ type: 'cart/addProductToCart', payload: newItem })
+  }
+  const decreaseItemQuantity = function (productId) {
+    dispatch({ type: 'cart/decreaseItemQuantity', payload: productId })
+  }
+  const increaseItemQuantity = function (productId) {
+    dispatch({ type: 'cart/increaseItemQuantity', payload: productId })
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, itemAddedToCart, addToCart }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        itemAddedToCart,
+        addToCart,
+        decreaseItemQuantity,
+        increaseItemQuantity,
+      }}
+    >
       {children}
     </CartContext.Provider>
   )

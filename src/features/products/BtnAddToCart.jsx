@@ -2,7 +2,12 @@ import { useCart } from '../cart/CartContext.jsx'
 import { useProducts } from './ProductsContext.jsx'
 
 function BtnAddToCart({ productId }) {
-  const { itemAddedToCart, addToCart } = useCart()
+  const {
+    itemAddedToCart,
+    addToCart,
+    decreaseItemQuantity,
+    increaseItemQuantity,
+  } = useCart()
   const { getProductById } = useProducts()
 
   const currProduct = itemAddedToCart(productId)
@@ -10,7 +15,10 @@ function BtnAddToCart({ productId }) {
   if (currProduct)
     return (
       <div className="absolute bottom-0 left-1/2 flex w-[150px] -translate-x-1/2 translate-y-1/2 items-center justify-between gap-2 rounded-full bg-red px-5 py-3 font-semibold text-rose-100 sm:text-sm">
-        <button className="rounded-full border-2 border-rose-100 p-1 transition-colors hover:bg-rose-100 [&:hover_path]:fill-red [&_path]:fill-rose-100">
+        <button
+          onClick={() => decreaseItemQuantity(productId)}
+          className="rounded-full border-2 border-rose-100 p-1 transition-colors hover:bg-rose-100 [&:hover_path]:fill-red [&_path]:fill-rose-100"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="10"
@@ -22,7 +30,10 @@ function BtnAddToCart({ productId }) {
           </svg>
         </button>
         {currProduct.quantity}
-        <button className="rounded-full border-2 border-rose-100 p-1 transition-colors hover:bg-rose-100 [&:hover_path]:fill-red [&_path]:fill-rose-100">
+        <button
+          onClick={() => increaseItemQuantity(productId)}
+          className="rounded-full border-2 border-rose-100 p-1 transition-colors hover:bg-rose-100 [&:hover_path]:fill-red [&_path]:fill-rose-100"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="10"

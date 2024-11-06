@@ -1,4 +1,4 @@
-function BtnDeleteItem({ itemId }) {
+function BtnDeleteCartItem({ itemId }) {
   return (
     <button className="rounded-full border-2 border-rose-300 p-1 transition-colors hover:border-rose-500 [&:hover_path]:fill-rose-500 [&_path]:fill-rose-300">
       <svg
@@ -14,4 +14,4 @@ function BtnDeleteItem({ itemId }) {
   )
 }
 
-export default BtnDeleteItem
+export default BtnDeleteCartItem

@@ -1,4 +1,4 @@
-import BtnDeleteItem from './BtnDeleteItem.jsx'
+import BtnDeleteCartItem from './BtnDeleteCartItem.jsx'
 
 function CartItem({ item }) {
   return (
@@ -13,7 +13,7 @@ function CartItem({ item }) {
           </span>
         </p>
       </div>
-      <BtnDeleteItem />
+      <BtnDeleteCartItem />
     </div>
   )
 }
