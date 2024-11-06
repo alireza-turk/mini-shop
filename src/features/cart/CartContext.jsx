@@ -1,7 +1,14 @@
 import { createContext, useContext, useReducer } from 'react'
 
 const initialState = {
-  cartItems: [],
+  cartItems: [
+    {
+      id: 'p1',
+      name: 'Waffle with Berries',
+      unitPrice: 6.5,
+      quantity: 2,
+    },
+  ],
 }
 
 function reducer(state, action) {

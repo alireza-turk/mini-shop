@@ -29,7 +29,11 @@ function Shop() {
               <ProductItem key={product.id} product={product} />
             ))}
         </div>
-        {errorMessage && <p className="text-xl font-bold">{errorMessage}</p>}
+        {errorMessage && (
+          <p className="animate-pulse rounded-lg bg-red/50 px-4 py-6 text-center text-xl font-bold text-rose-100">
+            {errorMessage} 😪
+          </p>
+        )}
       </div>
     </main>
   )
