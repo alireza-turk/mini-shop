@@ -33,9 +33,10 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      "no-unused-vars": "warn",
-      "react/prop-types": "off",
-      "react/no-unescaped-entities": "off"
+      'no-unused-vars': 'warn',
+      'react/prop-types': 'off',
+      'react/no-unescaped-entities': 'off',
+      'react/no-unknown-property': 'warn',
     },
   },
 ]
