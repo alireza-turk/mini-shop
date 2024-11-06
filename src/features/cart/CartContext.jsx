@@ -1,7 +1,7 @@
-import { createContext, useContext, useReducer } from 'react'
+import { createContext, useContext, useEffect, useReducer } from 'react'
 
 const initialState = {
-  cartItems: [],
+  cartItems: JSON.parse(localStorage.getItem('cart')) || [],
 }
 
 function reducer(state, action) {
@@ -61,6 +61,10 @@ const CartContext = createContext()
 
 function CartProvider({ children }) {
   const [{ cartItems }, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+  }, [cartItems])
 
   const itemAddedToCart = function (itemId) {
     return cartItems.find((item) => item.id === itemId)

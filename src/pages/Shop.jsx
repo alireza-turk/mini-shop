@@ -20,8 +20,6 @@ function Shop() {
               <Loader />
               <Loader />
               <Loader />
-              <Loader />
-              <Loader />
             </>
           )}
           {products &&
