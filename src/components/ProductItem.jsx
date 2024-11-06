@@ -11,7 +11,7 @@ function ProductItem({ product }) {
             alt={product.name}
           />
         </picture>
-        <button className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-100 px-4 py-2 font-semibold transition-colors hover:border-red hover:text-red sm:text-sm">
+        <button className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-100 px-4 py-3 font-semibold transition-colors hover:border-red hover:text-red sm:w-[150px] sm:text-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="21"
@@ -34,7 +34,7 @@ function ProductItem({ product }) {
       </div>
       <div>
         <p className="text-rose-500">{product.category}</p>
-        <p className="text-lg font-semibold text-stone-800">{product.name}</p>
+        <p className="font-semibold text-stone-800">{product.name}</p>
         <p className="font-bold text-red">${product.price}</p>
       </div>
     </div>
