@@ -1,4 +1,38 @@
+import { useCart } from '../cart/CartContext.jsx'
+
 function BtnAddToCart({ productId }) {
+  const { itemAddedToCart } = useCart()
+  const currProduct = itemAddedToCart(productId)
+
+  if (currProduct)
+    return (
+      <div className="absolute bottom-0 left-1/2 flex w-[150px] -translate-x-1/2 translate-y-1/2 items-center justify-between gap-2 rounded-full bg-red px-5 py-3 font-semibold text-rose-100 sm:text-sm">
+        <button className="rounded-full border-2 border-rose-100 p-1 transition-colors hover:bg-rose-100 [&:hover_path]:fill-red [&_path]:fill-rose-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            fill="none"
+            viewBox="0 0 10 2"
+          >
+            <path d="M0 .375h10v1.25H0V.375Z" />
+          </svg>
+        </button>
+        {currProduct.quantity}
+        <button className="rounded-full border-2 border-rose-100 p-1 transition-colors hover:bg-rose-100 [&:hover_path]:fill-red [&_path]:fill-rose-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            fill="none"
+            viewBox="0 0 10 10"
+          >
+            <path d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z" />
+          </svg>
+        </button>
+      </div>
+    )
+
   return (
     <button className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-100 px-4 py-3 font-semibold transition-colors hover:border-red hover:text-red sm:w-[150px] sm:text-sm">
       <svg

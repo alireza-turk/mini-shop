@@ -44,7 +44,7 @@ function CartContainer() {
             this is a<span className="font-semibold">carbon-neutral</span>
             delivery
           </div>
-          <button className="mt-5 w-full rounded-full bg-red p-4 font-semibold text-rose-100">
+          <button className="mt-5 w-full rounded-full bg-red p-4 font-semibold text-rose-100 transition-colors hover:bg-red/80">
             Confirm Order
           </button>
         </div>

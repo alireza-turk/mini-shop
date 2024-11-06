@@ -23,8 +23,12 @@ const CartContext = createContext()
 function CartProvider({ children }) {
   const [{ cartItems }, dispatch] = useReducer(reducer, initialState)
 
+  const itemAddedToCart = function (itemId) {
+    return cartItems.find((item) => item.id === itemId)
+  }
+
   return (
-    <CartContext.Provider value={{ cartItems }}>
+    <CartContext.Provider value={{ cartItems, itemAddedToCart }}>
       {children}
     </CartContext.Provider>
   )
