@@ -1,12 +1,4 @@
-// <style>
-//     .attribution {
-//   font - size: 11px;
-//   text-align: center;
-// }
-//     .attribution a {
-//   color: hsl(228, 45%, 44%);
-// }
-//   </style>
+import Footer from './components/Footer.jsx'
 
 function App() {
   return (
@@ -18,13 +10,7 @@ function App() {
       Velvet Cake Cake 4.50 Add to Cart Salted Caramel Brownie Brownie 4.50 Add
       to Cart Vanilla Panna Cotta Panna Cotta 6.50 Add to Cart Your Cart
       (%Quantity%) Your added items will appear here
-      <div className="attribution">
-        Challenge by{' '}
-        <a href="https://www.frontendmentor.io?ref=challenge">
-          Frontend Mentor
-        </a>
-        . Coded by <a href="#">Your Name Here</a>.
-      </div>
+      <Footer />
     </div>
   )
 }
