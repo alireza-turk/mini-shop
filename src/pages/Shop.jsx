@@ -1,7 +1,7 @@
-import CartContainer from '../components/CartContainer.jsx'
-import { useProducts } from '../contexts/ProductsContext.jsx'
-import ProductItem from '../components/ProductItem.jsx'
-import Loader from '../components/Loader.jsx'
+import CartContainer from '../features/cart/CartContainer.jsx'
+import { useProducts } from '../features/products/ProductsContext.jsx'
+import ProductItem from '../features/products/ProductItem.jsx'
+import Loader from '../ui/Loader.jsx'
 
 function Shop() {
   const { loading, error: errorMessage, products } = useProducts()
