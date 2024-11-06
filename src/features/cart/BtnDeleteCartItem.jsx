@@ -1,6 +1,13 @@
+import { useCart } from './CartContext.jsx'
+
 function BtnDeleteCartItem({ itemId }) {
+  const { removeItemCart } = useCart()
+
   return (
-    <button className="rounded-full border-2 border-rose-300 p-1 transition-colors hover:border-rose-500 [&:hover_path]:fill-rose-500 [&_path]:fill-rose-300">
+    <button
+      onClick={() => removeItemCart(itemId)}
+      className="rounded-full border-2 border-rose-300 p-1 transition-colors hover:border-rose-500 [&:hover_path]:fill-rose-500 [&_path]:fill-rose-300"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="10"

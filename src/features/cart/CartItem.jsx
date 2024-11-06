@@ -13,7 +13,7 @@ function CartItem({ item }) {
           </span>
         </p>
       </div>
-      <BtnDeleteCartItem />
+      <BtnDeleteCartItem itemId={item.id} />
     </div>
   )
 }

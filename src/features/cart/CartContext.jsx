@@ -13,7 +13,7 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'cart/addProductToCart':
+    case 'cart/addProduct':
       return { ...state, cartItems: [...state.cartItems, action.payload] }
     case 'cart/decreaseItemQuantity':
       if (
@@ -54,6 +54,11 @@ function reducer(state, action) {
             : item
         ),
       }
+    case 'cart/removeItem':
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
+      }
     default:
       return state
   }
@@ -74,13 +79,16 @@ function CartProvider({ children }) {
       unitPrice: product.price,
       quantity: 1,
     }
-    dispatch({ type: 'cart/addProductToCart', payload: newItem })
+    dispatch({ type: 'cart/addProduct', payload: newItem })
   }
   const decreaseItemQuantity = function (productId) {
     dispatch({ type: 'cart/decreaseItemQuantity', payload: productId })
   }
   const increaseItemQuantity = function (productId) {
     dispatch({ type: 'cart/increaseItemQuantity', payload: productId })
+  }
+  const removeItemCart = function (itemId) {
+    dispatch({ type: 'cart/removeItem', payload: itemId })
   }
 
   return (
@@ -91,6 +99,7 @@ function CartProvider({ children }) {
         addToCart,
         decreaseItemQuantity,
         increaseItemQuantity,
+        removeItemCart,
       }}
     >
       {children}
