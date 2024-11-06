@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        sm: '375px',
+        sm: '580px',
       },
       colors: {
         red: 'hsl(14, 86%, 42%)',
