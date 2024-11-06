@@ -1,11 +1,15 @@
-function ProductItem({ item }) {
+function ProductItem({ product }) {
   return (
     <div className="flex flex-col gap-8">
       <div className="relative">
         <picture>
-          <source srcSet={item.image.mobile} media="(max-width: 580px)" />
-          <source srcSet={item.image.tablet} media="(min-width: 580px)" />
-          <img className="rounded-lg" src={item.image.mobile} alt={item.name} />
+          <source srcSet={product.image.mobile} media="(max-width: 580px)" />
+          <source srcSet={product.image.tablet} media="(min-width: 580px)" />
+          <img
+            className="w-full rounded-lg"
+            src={product.image.mobile}
+            alt={product.name}
+          />
         </picture>
         <button className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-100 px-4 py-2 font-semibold transition-colors hover:border-red hover:text-red sm:text-sm">
           <svg
@@ -29,9 +33,9 @@ function ProductItem({ item }) {
         </button>
       </div>
       <div>
-        <p className="text-rose-500">{item.category}</p>
-        <p className="text-lg font-semibold text-stone-800">{item.name}</p>
-        <p className="font-bold text-red">${item.price}</p>
+        <p className="text-rose-500">{product.category}</p>
+        <p className="text-lg font-semibold text-stone-800">{product.name}</p>
+        <p className="font-bold text-red">${product.price}</p>
       </div>
     </div>
   )
