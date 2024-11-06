@@ -47,12 +47,17 @@ function ProductsProvider({ children }) {
     loadProducts()
   }, [])
 
+  const getProductById = function (productId) {
+    return products.find((item) => item.id === productId)
+  }
+
   return (
     <ProductsContext.Provider
       value={{
         products,
         loading,
         error,
+        getProductById,
       }}
     >
       {children}

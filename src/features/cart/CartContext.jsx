@@ -13,6 +13,8 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case 'cart/addProductToCart':
+      return { ...state, cartItems: [...state.cartItems, action.payload] }
     default:
       return state
   }
@@ -26,9 +28,19 @@ function CartProvider({ children }) {
   const itemAddedToCart = function (itemId) {
     return cartItems.find((item) => item.id === itemId)
   }
+  const addToCart = function (product) {
+    const newItem = {
+      id: product.id,
+      name: product.name,
+      unitPrice: product.price,
+      quantity: 1,
+    }
+
+    dispatch({ type: 'cart/addProductToCart', payload: newItem })
+  }
 
   return (
-    <CartContext.Provider value={{ cartItems, itemAddedToCart }}>
+    <CartContext.Provider value={{ cartItems, itemAddedToCart, addToCart }}>
       {children}
     </CartContext.Provider>
   )

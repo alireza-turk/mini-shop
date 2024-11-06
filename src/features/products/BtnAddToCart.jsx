@@ -1,7 +1,10 @@
 import { useCart } from '../cart/CartContext.jsx'
+import { useProducts } from './ProductsContext.jsx'
 
 function BtnAddToCart({ productId }) {
-  const { itemAddedToCart } = useCart()
+  const { itemAddedToCart, addToCart } = useCart()
+  const { getProductById } = useProducts()
+
   const currProduct = itemAddedToCart(productId)
 
   if (currProduct)
@@ -34,7 +37,10 @@ function BtnAddToCart({ productId }) {
     )
 
   return (
-    <button className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-100 px-4 py-3 font-semibold transition-colors hover:border-red hover:text-red sm:w-[150px] sm:text-sm">
+    <button
+      onClick={() => addToCart(getProductById(productId))}
+      className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-100 px-4 py-3 font-semibold transition-colors hover:border-red hover:text-red sm:w-[150px] sm:text-sm"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="21"
