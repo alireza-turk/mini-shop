@@ -25,9 +25,7 @@ function reducer(state, action) {
         cartItems: state.cartItems.map((item) =>
           item.id === action.payload
             ? {
-                id: item.id,
-                name: item.name,
-                unitPrice: item.unitPrice,
+                ...item,
                 quantity: item.quantity - 1,
               }
             : item
@@ -39,9 +37,7 @@ function reducer(state, action) {
         cartItems: state.cartItems.map((item) =>
           item.id === action.payload
             ? {
-                id: item.id,
-                name: item.name,
-                unitPrice: item.unitPrice,
+                ...item,
                 quantity: item.quantity + 1,
               }
             : item
@@ -75,6 +71,7 @@ function CartProvider({ children }) {
       name: product.name,
       unitPrice: product.price,
       quantity: 1,
+      image: product.image.thumbnail,
     }
     dispatch({ type: 'cart/addProduct', payload: newItem })
   }

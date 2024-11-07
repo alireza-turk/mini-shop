@@ -20,6 +20,15 @@ export default {
       fontFamily: {
         sans: ['red-hat', 'sans-serif'],
       },
+      animation: {
+        fadein: 'fadein 1s ease-in-out 1',
+      },
+      keyframes: {
+        fadein: {
+          '0%': { display: 'none', opacity: 0 },
+          '100%': { display: 'block', opacity: 1 },
+        },
+      },
     },
   },
   plugins: [],
