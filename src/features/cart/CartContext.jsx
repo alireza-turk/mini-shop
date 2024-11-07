@@ -48,6 +48,8 @@ function reducer(state, action) {
         ...state,
         cartItems: state.cartItems.filter((item) => item.id !== action.payload),
       }
+    case 'cart/clear':
+      return { ...state, cartItems: [] }
     default:
       return state
   }
@@ -84,6 +86,9 @@ function CartProvider({ children }) {
   const removeItemCart = function (itemId) {
     dispatch({ type: 'cart/removeItem', payload: itemId })
   }
+  const clearCart = function () {
+    dispatch({ type: 'cart/clear' })
+  }
 
   return (
     <CartContext.Provider
@@ -94,6 +99,7 @@ function CartProvider({ children }) {
         decreaseItemQuantity,
         increaseItemQuantity,
         removeItemCart,
+        clearCart,
       }}
     >
       {children}

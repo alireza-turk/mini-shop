@@ -5,7 +5,7 @@ function CartItem2({ item }) {
         <img
           src={item.image}
           alt={item.name}
-          className="h-fit max-w-14 rounded"
+          className="h-fit max-w-14 rounded object-contain"
         />
         <div className="space-y-1">
           <p className="font-semibold text-rose-900">{item.name}</p>

@@ -3,7 +3,7 @@ import { useCart } from './CartContext.jsx'
 import CartItem2 from './CartItem2.jsx'
 
 function PopupConfirmOrder({ setState }) {
-  const { cartItems } = useCart()
+  const { cartItems, clearCart } = useCart()
 
   const handleClosePopup = function (e) {
     if (!e.target.closest('#popup-confirm')) setState(false)
@@ -56,7 +56,14 @@ function PopupConfirmOrder({ setState }) {
               </span>
             </div>
           </div>
-          <Button onClick={() => setState(false)}>Start New Order</Button>
+          <Button
+            onClick={() => {
+              setState(false)
+              clearCart()
+            }}
+          >
+            Start New Order
+          </Button>
         </div>
       </div>
     </div>
