@@ -33,10 +33,10 @@ function ProductsProvider({ children }) {
     async function loadProducts() {
       dispatch({ type: 'products/startLoading' })
       try {
-        const res = await fetch('http://localhost:3000/products')
+        const res = await fetch('/data.json')
         if (!res.ok) throw new Error('Products was not found')
         const data = await res.json()
-        dispatch({ type: 'products/setDataAfterFetch', payload: data })
+        dispatch({ type: 'products/setDataAfterFetch', payload: data.products })
       } catch (err) {
         dispatch({ type: 'products/error', payload: err.message })
       } finally {

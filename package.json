@@ -10,11 +10,9 @@
     "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "npx json-server --watch data.json --port 3000"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
