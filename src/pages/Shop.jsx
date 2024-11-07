@@ -7,7 +7,7 @@ function Shop({ setStatePopupConfirm }) {
   const { loading, error: errorMessage, products } = useProducts()
 
   return (
-    <main className="mx-auto flex max-w-[1440px] flex-col gap-5 px-5 py-7 md:flex-row-reverse">
+    <main className="mx-auto flex min-h-screen max-w-[1440px] flex-col gap-5 px-5 py-7 md:flex-row-reverse">
       <div className="flex flex-col gap-5 sm:basis-1/3">
         <CartContainer setStatePopupConfirm={setStatePopupConfirm} />
       </div>
